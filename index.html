@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body style="margin: 0">
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+    </script>
   </body>
 </html>

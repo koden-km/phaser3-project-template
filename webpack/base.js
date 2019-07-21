@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
   mode: "development",
@@ -22,7 +24,7 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg|xml)$/i,
         use: "file-loader"
-      }
+      },
     ]
   },
   plugins: [
@@ -35,6 +37,23 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./index.html"
-    })
+    }),
+    new WebpackPwaManifest({
+      filename: 'app.webmanifest',
+      name: 'Phaser 3 Game Template',
+      short_name: 'Phaser3GT',
+      description: 'Phaser 3 game template.',
+      background_color: '#0f0f0f',
+      theme_color: '#808080',
+      start_url: '/',
+      icons: [
+        {
+          src: path.resolve('src/assets/icon.png'),
+          sizes: [192, 256, 512],
+          destination: path.join('assets', 'icons')
+        }
+      ]
+    }),
+    new WorkboxPlugin.GenerateSW(),
   ]
 };
