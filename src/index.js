@@ -1,5 +1,11 @@
 import Phaser from "phaser";
 import logoImg from "./assets/logo.png";
+import {Workbox} from 'workbox-window';
+
+if ('serviceWorker' in navigator) {
+  const wb = new Workbox('/service-worker.js');
+  wb.register();
+}
 
 const config = {
   type: Phaser.AUTO,
