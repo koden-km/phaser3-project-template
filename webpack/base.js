@@ -43,6 +43,7 @@ module.exports = {
       name: 'Phaser 3 Game Template',
       short_name: 'Phaser3GT',
       description: 'Phaser 3 game template.',
+      ios: true,
       background_color: '#0f0f0f',
       theme_color: '#808080',
       start_url: '/',
