@@ -39,7 +39,7 @@ module.exports = {
       template: "./index.html"
     }),
     new WebpackPwaManifest({
-      filename: 'app.webmanifest',
+      filename: 'manifest.webmanifest',
       name: 'Phaser 3 Game Template',
       short_name: 'Phaser3GT',
       description: 'Phaser 3 game template.',
